@@ -8,7 +8,7 @@ DB_CONFIG = {
     "port": "5432", # put your credentials here
     "dbname": "store", # put your credentials here
     "user": "postgres", # put your credentials here
-    "password": "Sdx12411", # put your credentials here
+    "password": "my_password", # put your credentials here
 }
 
 
