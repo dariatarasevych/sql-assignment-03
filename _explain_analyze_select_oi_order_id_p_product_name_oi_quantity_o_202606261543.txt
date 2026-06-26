@@ -1,0 +1,16 @@
+|QUERY PLAN                                                                                                             |
+|-----------------------------------------------------------------------------------------------------------------------|
+|Hash Join  (cost=27.09..41.32 rows=7 width=274) (actual time=0.058..0.062 rows=4.00 loops=1)                           |
+|  Hash Cond: (p.product_id = oi.product_id)                                                                            |
+|  Buffers: shared hit=2                                                                                                |
+|  ->  Seq Scan on products p  (cost=0.00..13.00 rows=300 width=222) (actual time=0.012..0.012 rows=5.00 loops=1)       |
+|        Buffers: shared hit=1                                                                                          |
+|  ->  Hash  (cost=27.00..27.00 rows=7 width=28) (actual time=0.035..0.035 rows=4.00 loops=1)                           |
+|        Buckets: 1024  Batches: 1  Memory Usage: 9kB                                                                   |
+|        Buffers: shared hit=1                                                                                          |
+|        ->  Seq Scan on order_items oi  (cost=0.00..27.00 rows=7 width=28) (actual time=0.008..0.009 rows=4.00 loops=1)|
+|              Filter: (order_id = 1)                                                                                   |
+|              Rows Removed by Filter: 3                                                                                |
+|              Buffers: shared hit=1                                                                                    |
+|Planning Time: 0.110 ms                                                                                                |
+|Execution Time: 0.091 ms                                                                                               |
